@@ -8,28 +8,29 @@
         body {
             font-family: Arial, sans-serif;
             margin: 0;
-            padding: 20px;
+            padding: 0;
             background-color: #f8f9fa;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         .container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        .upload-form {
-            margin-bottom: 20px;
+            width: 100%;
+            max-width: 1200px;
             padding: 20px;
-            background: #ffffff;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-sizing: border-box;
         }
         .gallery {
             display: flex;
             flex-wrap: wrap;
             gap: 20px;
+            justify-content: flex-start;
+            width: 100%;
         }
         .gallery-item {
             width: 200px;
             text-align: center;
+            cursor: pointer;
         }
         .gallery-item img {
             max-width: 100%;
@@ -39,12 +40,74 @@
         .gallery-item p {
             margin: 10px 0 0;
         }
+        .upload-button {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 10px 20px;
+            background-color: #ffdd57;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            z-index: 100;
+        }
+        .upload-form {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 101;
+        }
+        .upload-form-content {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        .upload-form-content h2 {
+            margin-top: 0;
+        }
+        .full-screen {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .full-screen img {
+            max-width: 90%;
+            max-height: 90%;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Welcome, {{ session.username }}</h1>
-        <div class="upload-form">
+        <h2>Gallery</h2>
+        <div class="gallery" id="gallery">
+            {% for image in images %}
+            <div class="gallery-item" onclick="openFullScreen(this)">
+                <img src="{{ url_for('static', filename='uploads/' ~ image.filename) }}" alt="{{ image.name }}">
+                <p>{{ image.name }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <button class="upload-button" onclick="toggleUploadForm()">Upload Image</button>
+    <div class="upload-form" id="upload-form">
+        <div class="upload-form-content">
             <h2>Upload an Image</h2>
             <form method="POST" enctype="multipart/form-data">
                 {{ form.hidden_tag() }}
@@ -61,15 +124,53 @@
                 </div>
             </form>
         </div>
-        <h2>Gallery</h2>
-        <div class="gallery">
-            {% for image in images %}
-            <div class="gallery-item">
-                <img src="{{ url_for('static', filename='uploads/' ~ image.filename) }}" alt="{{ image.name }}">
-                <p>{{ image.name }}</p>
-            </div>
-            {% endfor %}
-        </div>
     </div>
+    <div class="full-screen" id="full-screen">
+        <img id="full-screen-img" src="">
+    </div>
+    <script>
+        function toggleUploadForm() {
+            var form = document.getElementById('upload-form');
+            form.style.display = form.style.display === 'flex' ? 'none' : 'flex';
+        }
+
+        function openFullScreen(element) {
+            var fullScreenDiv = document.getElementById('full-screen');
+            var fullScreenImg = document.getElementById('full-screen-img');
+            var imgSrc = element.querySelector('img').src;
+            fullScreenImg.src = imgSrc;
+            fullScreenDiv.style.display = 'flex';
+        }
+
+        document.getElementById('full-screen').onclick = function() {
+            this.style.display = 'none';
+        };
+
+        var gallery = document.getElementById('gallery');
+        var loading = false;
+
+        window.onscroll = function() {
+            if (window.innerHeight + window.scrollY >= document.body.offsetHeight && !loading) {
+                loading = true;
+                setTimeout(function() {
+                    for (var i = 0; i < 10; i++) {
+                        var newDiv = document.createElement('div');
+                        newDiv.className = 'gallery-item';
+                        newDiv.onclick = function() {
+                            openFullScreen(this);
+                        };
+                        var newImg = document.createElement('img');
+                        newImg.src = 'https://via.placeholder.com/200';
+                        var newP = document.createElement('p');
+                        newP.textContent = 'New Image ' + (gallery.children.length + 1);
+                        newDiv.appendChild(newImg);
+                        newDiv.appendChild(newP);
+                        gallery.appendChild(newDiv);
+                    }
+                    loading = false;
+                }, 1000);
+            }
+        };
+    </script>
 </body>
 </html>
