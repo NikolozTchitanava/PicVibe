@@ -102,9 +102,9 @@ def login():
 @app.route('/verify_email', methods=['GET', 'POST'])
 def verify_email():
     if request.method == 'POST':
-        email = request.form['email']
         token = request.form['token']
-        
+        email = session.get('email_to_verify') 
+
         conn = get_db_connection()
         cursor = conn.cursor()
         
