@@ -17,7 +17,6 @@ UPLOAD_FOLDER = os.path.join(app.root_path, 'static/uploads')
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
-# Ensure the upload folder exists
 if not os.path.exists(UPLOAD_FOLDER):
     os.makedirs(UPLOAD_FOLDER)
 
@@ -55,6 +54,16 @@ def create_tables():
             FOREIGN KEY (user_id) REFERENCES users (id)
         )
     ''')
+    conn.execute('''
+        CREATE TABLE IF NOT EXISTS likes (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            user_id INTEGER NOT NULL,
+            image_id INTEGER NOT NULL,
+            vote INTEGER NOT NULL,
+            FOREIGN KEY (user_id) REFERENCES users (id),
+            FOREIGN KEY (image_id) REFERENCES images (id)
+        )
+    ''')
     conn.commit()
     conn.close()
 
@@ -85,7 +94,6 @@ def signup():
         if cursor.fetchone():
             flash('Username already exists', 'danger')
         else:
-            
             cursor.execute("SELECT * FROM users WHERE email = ?", (email,))
             if cursor.fetchone():
                 flash('Email already exists', 'danger')
@@ -185,6 +193,68 @@ def home():
     conn.close()
 
     return render_template('home.html', form=form, images=images)
+@app.route('/picvibe')
+def picvibe():
+    if 'username' not in session or 'user_id' not in session:
+        flash('Please log in first', 'danger')
+        return redirect(url_for('login'))
+
+    user_id = session['user_id']
+
+    conn = get_db_connection()
+    cursor = conn.cursor()
+    cursor.execute("SELECT images.id, images.filename, images.name, images.user_id, "
+                   "(SELECT COUNT(*) FROM likes WHERE likes.image_id = images.id AND likes.vote = 1) as likes, "
+                   "(SELECT COUNT(*) FROM likes WHERE likes.image_id = images.id AND likes.vote = -1) as dislikes "
+                   "FROM images WHERE images.user_id != ?", (user_id,))
+    images = cursor.fetchall()
+    conn.close()
+
+    image_list = []
+    for image in images:
+        total_votes = image['likes'] + image['dislikes']
+        like_percentage = (image['likes'] / total_votes) * 100 if total_votes > 0 else 0
+        dislike_percentage = (image['dislikes'] / total_votes) * 100 if total_votes > 0 else 0
+        image_dict = {
+            'id': image['id'],
+            'filename': image['filename'],
+            'name': image['name'],
+            'user_id': image['user_id'],
+            'likes': image['likes'],
+            'dislikes': image['dislikes'],
+            'like_percentage': like_percentage,
+            'dislike_percentage': dislike_percentage
+        }
+        image_list.append(image_dict)
+
+    return render_template('picvibe.html', images=image_list)
+
+@app.route('/vote', methods=['POST'])
+def vote():
+    if 'username' not in session or 'user_id' not in session:
+        flash('Please log in first', 'danger')
+        return redirect(url_for('login'))
+
+    image_id = request.form.get('image_id')
+    vote = int(request.form.get('vote'))  
+
+    conn = get_db_connection()
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM likes WHERE user_id = ? AND image_id = ?", (session['user_id'], image_id))
+    existing_vote = cursor.fetchone()
+
+    if existing_vote:
+        if existing_vote['vote'] == vote:
+            cursor.execute("DELETE FROM likes WHERE user_id = ? AND image_id = ?", (session['user_id'], image_id))
+        else:
+            cursor.execute("UPDATE likes SET vote = ? WHERE user_id = ? AND image_id = ?", (vote, session['user_id'], image_id))
+    else:
+        cursor.execute("INSERT INTO likes (user_id, image_id, vote) VALUES (?, ?, ?)", (session['user_id'], image_id, vote))
+
+    conn.commit()
+    conn.close()
+
+    return redirect(url_for('picvibe'))
 
 @app.route('/logout')
 def logout():
