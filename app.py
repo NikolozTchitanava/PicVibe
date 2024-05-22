@@ -4,14 +4,22 @@ import sqlite3
 import random
 import os
 from werkzeug.security import generate_password_hash, check_password_hash
+from werkzeug.utils import secure_filename
 from config import Config
-from forms import SignupForm, LoginForm
+from forms import SignupForm, LoginForm, ImageUploadForm
 
 app = Flask(__name__)
 app.config.from_object(Config)
 mail = Mail(app)
 
 DATABASE_URL = os.path.join(os.getcwd(), 'site.db')
+UPLOAD_FOLDER = os.path.join(app.root_path, 'static/uploads')
+ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+
+# Ensure the upload folder exists
+if not os.path.exists(UPLOAD_FOLDER):
+    os.makedirs(UPLOAD_FOLDER)
 
 def get_db_connection():
     conn = sqlite3.connect(DATABASE_URL)
@@ -38,10 +46,28 @@ def create_tables():
             token INTEGER NOT NULL
         )
     ''')
+    conn.execute('''
+        CREATE TABLE IF NOT EXISTS images (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            filename TEXT NOT NULL,
+            name TEXT NOT NULL,
+            user_id INTEGER NOT NULL,
+            FOREIGN KEY (user_id) REFERENCES users (id)
+        )
+    ''')
     conn.commit()
     conn.close()
 
 create_tables()
+
+def allowed_file(filename):
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
+def send_verification_email(email, token):
+    msg = Message('Email Verification', sender='your_email@example.com', recipients=[email])
+    msg.body = f'Your verification token is {token}'
+    mail.send(msg)
 
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
@@ -54,12 +80,12 @@ def signup():
         
         conn = get_db_connection()
         cursor = conn.cursor()
-        #no duplicate username shell pass!
+        
         cursor.execute("SELECT * FROM users WHERE username = ?", (username,))
         if cursor.fetchone():
             flash('Username already exists', 'danger')
         else:
-            #no duplicate email shell pass!
+            
             cursor.execute("SELECT * FROM users WHERE email = ?", (email,))
             if cursor.fetchone():
                 flash('Email already exists', 'danger')
@@ -69,6 +95,7 @@ def signup():
                                (username, email, hashed_password, token))
                 conn.commit()
                 send_verification_email(email, token)
+                session['email_to_verify'] = email 
                 flash('A verification email has been sent to your email address', 'success')
                 return redirect(url_for('verify_email'))
         conn.close()
@@ -90,6 +117,7 @@ def login():
         if user and check_password_hash(user['password'], password):
             if user['verified']:
                 session['username'] = user['username']
+                session['user_id'] = user['id'] 
                 flash('Logged in successfully', 'success')
                 return redirect(url_for('home'))
             else:
@@ -104,7 +132,6 @@ def verify_email():
     if request.method == 'POST':
         token = request.form['token']
         email = session.get('email_to_verify') 
-
         conn = get_db_connection()
         cursor = conn.cursor()
         
@@ -123,26 +150,47 @@ def verify_email():
         conn.close()
     return render_template('verify_email.html')
 
-@app.route('/home')
+@app.route('/home', methods=['GET', 'POST'])
 def home():
-    if 'username' in session:
-        return render_template('home.html', username=session['username'])
-    else:
+    if 'username' not in session or 'user_id' not in session:
         flash('Please log in first', 'danger')
         return redirect(url_for('login'))
 
-@app.route('/')
-def index():
-    if 'username' in session:
-        return redirect(url_for('home'))
+    form = ImageUploadForm()
+    if form.validate_on_submit():
+        if 'image' not in request.files:
+            flash('No file part', 'danger')
+            return redirect(request.url)
+        file = request.files['image']
+        if file.filename == '':
+            flash('No selected file', 'danger')
+            return redirect(request.url)
+        if file and allowed_file(file.filename):
+            filename = secure_filename(file.filename)
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            name = form.name.data
+            conn = get_db_connection()
+            cursor = conn.cursor()
+            cursor.execute("INSERT INTO images (filename, name, user_id) VALUES (?, ?, ?)",
+                           (filename, name, session['user_id']))
+            conn.commit()
+            conn.close()
+            flash('Image successfully uploaded', 'success')
+            return redirect(url_for('home'))
+
+    conn = get_db_connection()
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM images WHERE user_id = ?", (session['user_id'],))
+    images = cursor.fetchall()
+    conn.close()
+
+    return render_template('home.html', form=form, images=images)
+
+@app.route('/logout')
+def logout():
+    session.clear()
+    flash('You have been logged out', 'success')
     return redirect(url_for('login'))
-
-def send_verification_email(email, token):
-    msg = Message('Email Verification', sender=app.config['MAIL_USERNAME'], recipients=[email])
-    msg.body = f'Your verification code is {token}'
-    mail.send(msg)
-
-email_verifications = {}
 
 if __name__ == '__main__':
     app.run(debug=True)

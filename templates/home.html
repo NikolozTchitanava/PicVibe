@@ -3,8 +3,73 @@
 <head>
     <meta charset="utf-8">
     <title>Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .upload-form {
+            margin-bottom: 20px;
+            padding: 20px;
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .gallery-item {
+            width: 200px;
+            text-align: center;
+        }
+        .gallery-item img {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .gallery-item p {
+            margin: 10px 0 0;
+        }
+    </style>
 </head>
 <body>
-    <h1>Welcome, {{ username }}!</h1>
+    <div class="container">
+        <h1>Welcome, {{ session.username }}</h1>
+        <div class="upload-form">
+            <h2>Upload an Image</h2>
+            <form method="POST" enctype="multipart/form-data">
+                {{ form.hidden_tag() }}
+                <div class="form-group">
+                    {{ form.image.label }}<br>
+                    {{ form.image(class="form-control-file") }}
+                </div>
+                <div class="form-group">
+                    {{ form.name.label }}<br>
+                    {{ form.name(class="form-control") }}
+                </div>
+                <div class="form-group">
+                    {{ form.submit(class="btn btn-primary") }}
+                </div>
+            </form>
+        </div>
+        <h2>Gallery</h2>
+        <div class="gallery">
+            {% for image in images %}
+            <div class="gallery-item">
+                <img src="{{ url_for('static', filename='uploads/' ~ image.filename) }}" alt="{{ image.name }}">
+                <p>{{ image.name }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
 </body>
 </html>
