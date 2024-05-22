@@ -78,6 +78,10 @@ def send_verification_email(email, token):
     msg.body = f'Your verification token is {token}'
     mail.send(msg)
 
+@app.route('/')
+def index():
+    return redirect(url_for('home'))
+
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
     form = SignupForm()
@@ -193,6 +197,7 @@ def home():
     conn.close()
 
     return render_template('home.html', form=form, images=images)
+
 @app.route('/picvibe')
 def picvibe():
     if 'username' not in session or 'user_id' not in session:
@@ -255,6 +260,34 @@ def vote():
     conn.close()
 
     return redirect(url_for('picvibe'))
+
+@app.route('/delete_image/<int:image_id>', methods=['POST'])
+def delete_image(image_id):
+    if 'username' not in session or 'user_id' not in session:
+        flash('Please log in first', 'danger')
+        return redirect(url_for('login'))
+
+    conn = get_db_connection()
+    cursor = conn.cursor()
+
+    cursor.execute("SELECT * FROM images WHERE id = ? AND user_id = ?", (image_id, session['user_id']))
+    image = cursor.fetchone()
+
+    if image:
+        
+        image_path = os.path.join(app.config['UPLOAD_FOLDER'], image['filename'])
+        if os.path.exists(image_path):
+            os.remove(image_path)
+        
+       
+        cursor.execute("DELETE FROM images WHERE id = ?", (image_id,))
+        conn.commit()
+        flash('Image successfully deleted', 'success')
+    else:
+        flash('Image not found or you do not have permission to delete this image', 'danger')
+
+    conn.close()
+    return redirect(url_for('home'))
 
 @app.route('/logout')
 def logout():

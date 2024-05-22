@@ -98,9 +98,12 @@
         <h2>Gallery</h2>
         <div class="gallery" id="gallery">
             {% for image in images %}
-            <div class="gallery-item" onclick="openFullScreen(this)">
-                <img src="{{ url_for('static', filename='uploads/' ~ image.filename) }}" alt="{{ image.name }}">
+            <div class="gallery-item">
+                <img src="{{ url_for('static', filename='uploads/' ~ image.filename) }}" alt="{{ image.name }}" onclick="openFullScreen(this)">
                 <p>{{ image.name }}</p>
+                <form method="POST" action="{{ url_for('delete_image', image_id=image.id) }}">
+                    <button type="submit">Delete</button>
+                </form>
             </div>
             {% endfor %}
         </div>
