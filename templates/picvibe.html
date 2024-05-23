@@ -4,6 +4,16 @@
     <meta charset="UTF-8">
     <title>PicVibe</title>
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
         .image-container {
             display: none;
             text-align: center;
@@ -34,6 +44,41 @@
         #dislikeButton {
             right: 10px;
             background-color: red;
+        }
+        .nav-buttons {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            box-sizing: border-box;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+        .nav-buttons .btn {
+            padding: 10px 20px;
+            background-color: #ffdd57;
+            border: none;
+            border-radius: 8px;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .profile-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 40px;
+            height: 40px;
+            background-color: #007bff;
+            border: none;
+            border-radius: 50%;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
     </style>
     <script>
@@ -81,6 +126,10 @@
 </head>
 <body>
     <h1>PicVibe</h1>
+    <div class="nav-buttons">
+        <button class="btn" onclick="location.href='{{ url_for('home') }}'">Home</button>
+    </div>
+    <button class="profile-btn" onclick="location.href='{{ url_for('profile') }}'">P</button>
     <div id="imageContainer">
         {% for image in images %}
         <div class="image-container" data-image-id="{{ image['id'] }}">
@@ -94,4 +143,3 @@
     </div>
 </body>
 </html>
-
