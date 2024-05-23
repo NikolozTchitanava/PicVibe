@@ -4,12 +4,53 @@
     <meta charset="utf-8">
     <title>Profile</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f8f9fa;
+        }
+        .profile-container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 300px;
+        }
+        .profile-option {
+            margin: 20px 0;
+            cursor: pointer;
+        }
+        .form-container {
+            display: none;
+            margin-top: 20px;
+        }
+        .form-container.active {
+            display: block;
+        }
+        .btn {
+            padding: 10px 20px;
+            background-color: #007bff;
+            border: none;
+            border-radius: 8px;
+            color: #fff;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .btn-danger {
+            background-color: #dc3545;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <h2>Profile</h2>
-        <div>
-            <h3>Change Username</h3>
+    <div class="profile-container">
+        <div class="profile-option" onclick="toggleForm('username-form')">Change Username</div>
+        <div id="username-form" class="form-container">
             <form method="POST" action="{{ url_for('profile') }}">
                 {{ change_username_form.hidden_tag() }}
                 <div class="form-group">
@@ -17,12 +58,12 @@
                     {{ change_username_form.new_username(class="form-control") }}
                 </div>
                 <div class="form-group">
-                    {{ change_username_form.submit(class="btn btn-primary") }}
+                    {{ change_username_form.submit(class="btn") }}
                 </div>
             </form>
         </div>
-        <div>
-            <h3>Change Password</h3>
+        <div class="profile-option" onclick="toggleForm('password-form')">Change Password</div>
+        <div id="password-form" class="form-container">
             <form method="POST" action="{{ url_for('profile') }}">
                 {{ change_password_form.hidden_tag() }}
                 <div class="form-group">
@@ -38,16 +79,20 @@
                     {{ change_password_form.confirm_password(class="form-control") }}
                 </div>
                 <div class="form-group">
-                    {{ change_password_form.submit(class="btn btn-primary") }}
+                    {{ change_password_form.submit(class="btn") }}
                 </div>
             </form>
         </div>
-        <div>
-            <h3>Logout</h3>
-            <form method="GET" action="{{ url_for('logout') }}">
-                <button type="submit" class="btn btn-danger">Logout</button>
-            </form>
-        </div>
+        <form method="GET" action="{{ url_for('logout') }}">
+            <button type="submit" class="btn btn-danger">Logout</button>
+        </form>
     </div>
+    <script>
+        function toggleForm(formId) {
+            const form = document.getElementById(formId);
+            form.classList.toggle('active');
+        }
+    </script>
 </body>
 </html>
+
