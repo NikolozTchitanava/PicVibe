@@ -95,6 +95,23 @@
             max-width: 90%;
             max-height: 90%;
         }
+        .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2rem;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.5);
+            border: none;
+            cursor: pointer;
+            z-index: 1001;
+        }
+        .arrow-left {
+            left: 10px;
+        }
+        .arrow-right {
+            right: 10px;
+        }
     </style>
 </head>
 <body>
@@ -102,7 +119,7 @@
         <h2>Gallery</h2>
         <div class="gallery" id="gallery">
             {% for image in images %}
-            <div class="gallery-item">
+            <div class="gallery-item" data-index="{{ loop.index0 }}">
                 <img src="{{ url_for('static', filename='uploads/' ~ image.filename) }}" alt="{{ image.name }}" onclick="openFullScreen(this)">
                 <p>{{ image.name }}</p>
                 <form method="POST" action="{{ url_for('delete_image', image_id=image.id) }}">
@@ -136,25 +153,49 @@
         </div>
     </div>
     <div class="full-screen" id="full-screen">
+        <button class="arrow arrow-left" onclick="prevImage()">&#8249;</button>
         <img id="full-screen-img" src="">
+        <button class="arrow arrow-right" onclick="nextImage()">&#8250;</button>
     </div>
     <script>
+        let currentImageIndex = 0;
+        const galleryItems = document.querySelectorAll('.gallery-item');
+
         function toggleUploadForm() {
-            var form = document.getElementById('upload-form');
+            const form = document.getElementById('upload-form');
             form.style.display = form.style.display === 'flex' ? 'none' : 'flex';
         }
 
         function openFullScreen(element) {
-            var fullScreenDiv = document.getElementById('full-screen');
-            var fullScreenImg = document.getElementById('full-screen-img');
-            var imgSrc = element.src;
+            const fullScreenDiv = document.getElementById('full-screen');
+            const fullScreenImg = document.getElementById('full-screen-img');
+            const imgSrc = element.src;
             fullScreenImg.src = imgSrc;
             fullScreenDiv.style.display = 'flex';
+            currentImageIndex = parseInt(element.parentElement.getAttribute('data-index'));
         }
 
-        document.getElementById('full-screen').onclick = function() {
-            this.style.display = 'none';
+        document.getElementById('full-screen').onclick = function(e) {
+            if (e.target === this) {
+                this.style.display = 'none';
+            }
         };
+
+        function prevImage() {
+            currentImageIndex = (currentImageIndex - 1 + galleryItems.length) % galleryItems.length;
+            updateFullScreenImage();
+        }
+
+        function nextImage() {
+            currentImageIndex = (currentImageIndex + 1) % galleryItems.length;
+            updateFullScreenImage();
+        }
+
+        function updateFullScreenImage() {
+            const fullScreenImg = document.getElementById('full-screen-img');
+            const newImgSrc = galleryItems[currentImageIndex].querySelector('img').src;
+            fullScreenImg.src = newImgSrc;
+        }
 
         var gallery = document.getElementById('gallery');
         var loading = false;
