@@ -40,18 +40,22 @@
         .gallery-item p {
             margin: 10px 0 0;
         }
-        .upload-button {
+        .fixed-buttons {
             position: fixed;
             bottom: 20px;
             left: 50%;
             transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 100;
+        }
+        .fixed-buttons button {
             padding: 10px 20px;
             background-color: #ffdd57;
             border: none;
             border-radius: 8px;
             cursor: pointer;
             font-size: 16px;
-            z-index: 100;
         }
         .upload-form {
             display: none;
@@ -108,7 +112,10 @@
             {% endfor %}
         </div>
     </div>
-    <button class="upload-button" onclick="toggleUploadForm()">Upload Image</button>
+    <div class="fixed-buttons">
+        <button onclick="toggleUploadForm()">Upload Image</button>
+        <button onclick="location.href='{{ url_for('picvibe') }}'">PicVibe</button>
+    </div>
     <div class="upload-form" id="upload-form">
         <div class="upload-form-content">
             <h2>Upload an Image</h2>
@@ -140,7 +147,7 @@
         function openFullScreen(element) {
             var fullScreenDiv = document.getElementById('full-screen');
             var fullScreenImg = document.getElementById('full-screen-img');
-            var imgSrc = element.querySelector('img').src;
+            var imgSrc = element.src;
             fullScreenImg.src = imgSrc;
             fullScreenDiv.style.display = 'flex';
         }
