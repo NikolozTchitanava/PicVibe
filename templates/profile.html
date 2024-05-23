@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Profile</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Profile</h2>
+        <div>
+            <h3>Change Username</h3>
+            <form method="POST" action="{{ url_for('profile') }}">
+                {{ change_username_form.hidden_tag() }}
+                <div class="form-group">
+                    {{ change_username_form.new_username.label }}<br>
+                    {{ change_username_form.new_username(class="form-control") }}
+                </div>
+                <div class="form-group">
+                    {{ change_username_form.submit(class="btn btn-primary") }}
+                </div>
+            </form>
+        </div>
+        <div>
+            <h3>Change Password</h3>
+            <form method="POST" action="{{ url_for('profile') }}">
+                {{ change_password_form.hidden_tag() }}
+                <div class="form-group">
+                    {{ change_password_form.current_password.label }}<br>
+                    {{ change_password_form.current_password(class="form-control") }}
+                </div>
+                <div class="form-group">
+                    {{ change_password_form.new_password.label }}<br>
+                    {{ change_password_form.new_password(class="form-control") }}
+                </div>
+                <div class="form-group">
+                    {{ change_password_form.confirm_password.label }}<br>
+                    {{ change_password_form.confirm_password(class="form-control") }}
+                </div>
+                <div class="form-group">
+                    {{ change_password_form.submit(class="btn btn-primary") }}
+                </div>
+            </form>
+        </div>
+        <div>
+            <h3>Logout</h3>
+            <form method="GET" action="{{ url_for('logout') }}">
+                <button type="submit" class="btn btn-danger">Logout</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

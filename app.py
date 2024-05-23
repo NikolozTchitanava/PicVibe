@@ -6,7 +6,7 @@ import os
 from werkzeug.security import generate_password_hash, check_password_hash
 from werkzeug.utils import secure_filename
 from config import Config
-from forms import SignupForm, LoginForm, ImageUploadForm
+from forms import SignupForm, LoginForm, ImageUploadForm, ChangeUsernameForm, ChangePasswordForm
 
 app = Flask(__name__)
 app.config.from_object(Config)
@@ -294,6 +294,47 @@ def logout():
     session.clear()
     flash('You have been logged out', 'success')
     return redirect(url_for('login'))
+
+@app.route('/profile', methods=['GET', 'POST'])
+def profile():
+    if 'username' not in session or 'user_id' not in session:
+        flash('Please log in first', 'danger')
+        return redirect(url_for('login'))
+
+    change_username_form = ChangeUsernameForm()
+    change_password_form = ChangePasswordForm()
+
+    if change_username_form.validate_on_submit() and change_username_form.new_username.data:
+        new_username = change_username_form.new_username.data
+        conn = get_db_connection()
+        cursor = conn.cursor()
+        cursor.execute("SELECT * FROM users WHERE username = ?", (new_username,))
+        if cursor.fetchone():
+            flash('Username already exists', 'danger')
+        else:
+            cursor.execute("UPDATE users SET username = ? WHERE id = ?", (new_username, session['user_id']))
+            conn.commit()
+            session['username'] = new_username
+            flash('Username successfully changed', 'success')
+        conn.close()
+
+    if change_password_form.validate_on_submit() and change_password_form.new_password.data:
+        current_password = change_password_form.current_password.data
+        new_password = change_password_form.new_password.data
+        conn = get_db_connection()
+        cursor = conn.cursor()
+        cursor.execute("SELECT * FROM users WHERE id = ?", (session['user_id'],))
+        user = cursor.fetchone()
+        if user and check_password_hash(user['password'], current_password):
+            hashed_new_password = generate_password_hash(new_password)
+            cursor.execute("UPDATE users SET password = ? WHERE id = ?", (hashed_new_password, session['user_id']))
+            conn.commit()
+            flash('Password successfully changed', 'success')
+        else:
+            flash('Current password is incorrect', 'danger')
+        conn.close()
+
+    return render_template('profile.html', change_username_form=change_username_form, change_password_form=change_password_form)
 
 if __name__ == '__main__':
     app.run(debug=True)
