@@ -112,9 +112,27 @@
         .arrow-right {
             right: 10px;
         }
+        .profile-btn {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            width: 40px;
+            height: 40px;
+            background-color: #007bff;
+            border: none;
+            border-radius: 50%;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 102;
+        }
     </style>
 </head>
 <body>
+    <button class="profile-btn" onclick="location.href='{{ url_for('profile') }}'">P</button>
     <div class="container">
         <h2>Gallery</h2>
         <div class="gallery" id="gallery">
