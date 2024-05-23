@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -15,16 +15,18 @@
             background-color: #f8f9fa;
         }
         .profile-container {
-            background: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
             text-align: center;
-            width: 300px;
+            width: 350px;
         }
         .profile-option {
             margin: 20px 0;
             cursor: pointer;
+            font-weight: bold;
+            color: #007bff;
         }
         .form-container {
             display: none;
@@ -34,21 +36,46 @@
             display: block;
         }
         .btn {
-            padding: 10px 20px;
+            padding: 12px 20px;
             background-color: #007bff;
             border: none;
             border-radius: 8px;
-            color: #fff;
+            color: #ffffff;
             cursor: pointer;
             font-size: 16px;
+            margin-top: 10px;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #0056b3;
         }
         .btn-danger {
             background-color: #dc3545;
+        }
+        .btn-danger:hover {
+            background-color: #b52a37;
+        }
+        .btn-yellow {
+            background-color: #ffdd57;
+            color: #000;
+        }
+        .btn-yellow:hover {
+            background-color: #e6c645;
+        }
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
         }
     </style>
 </head>
 <body>
     <div class="profile-container">
+        <div class="nav-buttons">
+            <button class="btn btn-yellow" onclick="location.href='{{ url_for('home') }}'">Home</button>
+            <button class="btn btn-yellow" onclick="location.href='{{ url_for('picvibe') }}'">PicVibe</button>
+        </div>
         <div class="profile-option" onclick="toggleForm('username-form')">Change Username</div>
         <div id="username-form" class="form-container">
             <form method="POST" action="{{ url_for('profile') }}">
@@ -95,4 +122,3 @@
     </script>
 </body>
 </html>
-
