@@ -7,9 +7,33 @@
         .image-container {
             display: none;
             text-align: center;
+            position: relative;
         }
         .image-container.active {
             display: block;
+        }
+        img {
+            max-width: 100%;
+            max-height: 80vh; 
+            display: block;
+            margin: 0 auto;
+        }
+        #likeButton, #dislikeButton {
+            position: absolute;
+            bottom: 10px;
+            padding: 10px 20px;
+            border: none;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        #likeButton {
+            left: 10px;
+            background-color: green;
+        }
+        #dislikeButton {
+            right: 10px;
+            background-color: red;
         }
     </style>
     <script>
@@ -63,10 +87,11 @@
             <img src="{{ url_for('static', filename='uploads/' + image['filename']) }}" alt="{{ image['name'] }}">
             <p>{{ image['name'] }}</p>
             <p>Likes: {{ image['like_percentage'] }}% | Dislikes: {{ image['dislike_percentage'] }}%</p>
+            <button id="likeButton">Like</button>
+            <button id="dislikeButton">Dislike</button>
         </div>
         {% endfor %}
     </div>
-    <button id="likeButton">Like</button>
-    <button id="dislikeButton">Dislike</button>
 </body>
 </html>
+
