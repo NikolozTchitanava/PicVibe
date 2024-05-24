@@ -117,21 +117,27 @@
                 images[currentIndex].classList.add("active");
             }
 
-            document.getElementById("likeButton").addEventListener("click", function () {
-                vote(images[currentIndex].dataset.imageId, 1);
-                showNextImage();
-            });
-
-            document.getElementById("dislikeButton").addEventListener("click", function () {
-                vote(images[currentIndex].dataset.imageId, -1);
-                showNextImage();
-            });
-
             function showNextImage() {
                 images[currentIndex].classList.remove("active");
                 currentIndex = (currentIndex + 1) % images.length;
                 images[currentIndex].classList.add("active");
             }
+
+            document.querySelectorAll(".like-btn").forEach(button => {
+                button.addEventListener("click", function () {
+                    const imageId = this.closest(".image-container").dataset.imageId;
+                    vote(imageId, 1);
+                    showNextImage();
+                });
+            });
+
+            document.querySelectorAll(".dislike-btn").forEach(button => {
+                button.addEventListener("click", function () {
+                    const imageId = this.closest(".image-container").dataset.imageId;
+                    vote(imageId, -1);
+                    showNextImage();
+                });
+            });
 
             function vote(imageId, vote) {
                 fetch("/vote", {
@@ -165,12 +171,11 @@
             <p>{{ image['name'] }}</p>
             <p>Likes: {{ image['like_percentage'] }}% | Dislikes: {{ image['dislike_percentage'] }}%</p>
             <div class="like-dislike-buttons">
-                <button id="likeButton" class="like-btn"></button>
-                <button id="dislikeButton" class="dislike-btn"></button>
+                <button class="like-btn"></button>
+                <button class="dislike-btn"></button>
             </div>
         </div>
         {% endfor %}
     </div>
 </body>
 </html>
-

@@ -154,11 +154,15 @@
     <div class="upload-form" id="upload-form">
         <div class="upload-form-content">
             <h2>Upload an Image</h2>
-            <form method="POST" enctype="multipart/form-data">
+            <form id="upload-image-form" method="POST" enctype="multipart/form-data">
                 {{ form.hidden_tag() }}
                 <div class="form-group">
-                    {{ form.image.label }}<br>
-                    {{ form.image(class="form-control-file") }}
+                    <label for="image-file">Select Image</label>
+                    <input type="file" id="image-file" class="form-control-file" onchange="handleFileSelect(event)">
+                </div>
+                <div class="form-group">
+                    <label for="image-paste">Or Paste Image</label>
+                    <textarea id="image-paste" class="form-control" rows="4" placeholder="Paste image here..."></textarea>
                 </div>
                 <div class="form-group">
                     {{ form.name.label }}<br>
@@ -167,6 +171,7 @@
                 <div class="form-group">
                     {{ form.submit(class="btn btn-primary") }}
                 </div>
+                <input type="hidden" name="image" id="image-data">
             </form>
         </div>
     </div>
@@ -240,6 +245,38 @@
                 }, 1000);
             }
         };
+
+        function handleFileSelect(event) {
+            const file = event.target.files[0];
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const imageData = e.target.result;
+                document.getElementById('image-data').value = imageData;
+            };
+            reader.readAsDataURL(file);
+        }
+
+        document.getElementById('image-paste').addEventListener('paste', function(event) {
+            const items = event.clipboardData.items;
+            for (let item of items) {
+                if (item.type.indexOf('image') !== -1) {
+                    const file = item.getAsFile();
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        const imageData = e.target.result;
+                        document.getElementById('image-data').value = imageData;
+                    };
+                    reader.readAsDataURL(file);
+                }
+            }
+        });
+
+        document.getElementById('upload-image-form').addEventListener('submit', function(event) {
+            if (document.getElementById('image-data').value === '') {
+                event.preventDefault();
+                alert('No image selected or pasted.');
+            }
+        });
     </script>
 </body>
 </html>
