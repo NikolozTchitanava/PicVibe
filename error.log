@@ -429,3 +429,157 @@
 2024-05-24 05:42:06,126 INFO werkzeug Thread-96 (process_request_thread) : 202.28.14.53 - - [24/May/2024 05:42:06] "[33mGET /static/styles.css HTTP/1.1[0m" 404 -
 2024-05-24 05:42:06,127 INFO werkzeug Thread-97 (process_request_thread) : 202.28.14.53 - - [24/May/2024 05:42:06] "[36mGET /static/uploads/f2.png HTTP/1.1[0m" 304 -
 2024-05-24 05:42:06,498 INFO werkzeug Thread-98 (process_request_thread) : 202.28.14.53 - - [24/May/2024 05:42:06] "[36mGET /static/uploads/ferrari.png HTTP/1.1[0m" 304 -
+2024-05-24 05:45:44,392 INFO werkzeug MainThread : [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8001
+ * Running on http://65.108.85.209:8001
+2024-05-24 05:45:44,392 INFO werkzeug MainThread : [33mPress CTRL+C to quit[0m
+2024-05-24 05:45:44,395 INFO werkzeug MainThread :  * Restarting with stat
+2024-05-24 05:45:44,674 WARNING werkzeug MainThread :  * Debugger is active!
+2024-05-24 05:45:44,681 INFO werkzeug MainThread :  * Debugger PIN: 914-131-808
+2024-05-24 05:45:49,027 INFO werkzeug Thread-2 (process_request_thread) : 202.28.14.53 - - [24/May/2024 05:45:49] "GET /home HTTP/1.1" 200 -
+2024-05-24 05:45:49,418 INFO werkzeug Thread-3 (process_request_thread) : 202.28.14.53 - - [24/May/2024 05:45:49] "[33mGET /static/styles.css HTTP/1.1[0m" 404 -
+2024-05-24 05:45:49,431 INFO werkzeug Thread-4 (process_request_thread) : 202.28.14.53 - - [24/May/2024 05:45:49] "[36mGET /static/uploads/f2.png HTTP/1.1[0m" 304 -
+2024-05-24 05:45:49,793 INFO werkzeug Thread-5 (process_request_thread) : 202.28.14.53 - - [24/May/2024 05:45:49] "[36mGET /static/uploads/ferrari.png HTTP/1.1[0m" 304 -
+2024-05-24 05:46:20,699 INFO werkzeug Thread-6 (process_request_thread) : 49.230.208.227 - - [24/May/2024 05:46:20] "[32mGET / HTTP/1.1[0m" 302 -
+2024-05-24 05:46:21,062 INFO werkzeug Thread-7 (process_request_thread) : 49.230.208.227 - - [24/May/2024 05:46:21] "[32mGET /home HTTP/1.1[0m" 302 -
+2024-05-24 05:46:21,760 INFO werkzeug Thread-8 (process_request_thread) : 49.230.208.227 - - [24/May/2024 05:46:21] "GET /login HTTP/1.1" 200 -
+2024-05-24 05:46:22,140 INFO werkzeug Thread-9 (process_request_thread) : 49.230.208.227 - - [24/May/2024 05:46:22] "[33mGET /static/styles.css HTTP/1.1[0m" 404 -
+2024-05-24 05:46:22,471 INFO werkzeug Thread-10 (process_request_thread) : 49.230.208.227 - - [24/May/2024 05:46:22] "GET /static/images/logo.webp HTTP/1.1" 200 -
+2024-05-24 05:46:26,370 INFO werkzeug Thread-11 (process_request_thread) : 49.230.208.227 - - [24/May/2024 05:46:26] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2024-05-24 05:46:34,534 INFO werkzeug Thread-12 (process_request_thread) : 49.230.208.227 - - [24/May/2024 05:46:34] "[32mPOST /login HTTP/1.1[0m" 302 -
+2024-05-24 05:46:35,567 INFO werkzeug Thread-13 (process_request_thread) : 49.230.208.227 - - [24/May/2024 05:46:35] "GET /home HTTP/1.1" 200 -
+2024-05-24 05:46:46,146 INFO werkzeug Thread-14 (process_request_thread) : 49.230.208.227 - - [24/May/2024 05:46:46] "[33mGET /static/styles.css HTTP/1.1[0m" 404 -
+2024-05-24 05:46:46,882 INFO werkzeug Thread-15 (process_request_thread) : 49.230.208.227 - - [24/May/2024 05:46:46] "GET /static/uploads/f2.png HTTP/1.1" 200 -
+2024-05-24 05:46:47,925 INFO werkzeug Thread-16 (process_request_thread) : 49.230.208.227 - - [24/May/2024 05:46:47] "GET /static/uploads/ferrari.png HTTP/1.1" 200 -
+2024-05-24 05:47:18,471 INFO werkzeug Thread-17 (process_request_thread) : 49.230.208.227 - - [24/May/2024 05:47:18] "GET /picvibe HTTP/1.1" 200 -
+2024-05-24 05:47:19,714 INFO werkzeug Thread-18 (process_request_thread) : 49.230.208.227 - - [24/May/2024 05:47:19] "GET /static/uploads/WIN_20230621_13_14_47_Pro.jpg HTTP/1.1" 200 -
+2024-05-24 05:47:24,546 INFO werkzeug Thread-19 (process_request_thread) : 49.230.208.227 - - [24/May/2024 05:47:24] "[32mPOST /vote HTTP/1.1[0m" 302 -
+2024-05-24 05:47:25,242 INFO werkzeug Thread-20 (process_request_thread) : 49.230.208.227 - - [24/May/2024 05:47:25] "GET /picvibe HTTP/1.1" 200 -
+2024-05-24 05:47:49,419 INFO werkzeug Thread-21 (process_request_thread) : 49.230.208.227 - - [24/May/2024 05:47:49] "[32mPOST /vote HTTP/1.1[0m" 302 -
+2024-05-24 05:47:50,175 INFO werkzeug Thread-22 (process_request_thread) : 49.230.208.227 - - [24/May/2024 05:47:50] "GET /picvibe HTTP/1.1" 200 -
+2024-05-24 05:47:54,691 ERROR werkzeug Thread-25 (process_request_thread) : 49.230.208.227 - - [24/May/2024 05:47:54] code 400, message Bad request version ('\x00\x12\x00\x10\x04\x03\x08\x04\x04\x01\x05\x03\x08\x05\x05\x01\x08\x06\x06\x01\x00\x1b\x00\x03\x02\x00\x02\x00')
+2024-05-24 05:47:54,691 INFO werkzeug Thread-25 (process_request_thread) : 49.230.208.227 - - [24/May/2024 05:47:54] "[31m[1m\x16\x03\x01\x02\x00\x01\x00\x01ü\x03\x03\x09F~_ \x969×\x14\x06Ã\x0c¸\x85ÔÚY\x9c8`m\x12^!Aø\x8e\\/Eø¸ \x85]v(ß´©)T\x18ôñïJ\x17_Áq\x13æ\x08Îð¾É»ôÚ(ðjC\x00 JJ\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x01\x93\x8a\x8a\x00\x00ÿ\x01\x00\x01\x00\x00\x0d\x00\x12\x00\x10\x04\x03\x08\x04\x04\x01\x05\x03\x08\x05\x05\x01\x08\x06\x06\x01\x00\x1b\x00\x03\x02\x00\x02\x00[0m" 400 -
+2024-05-24 05:47:54,941 ERROR werkzeug Thread-26 (process_request_thread) : 49.230.208.227 - - [24/May/2024 05:47:54] code 400, message Bad HTTP/0.9 request type ('\x16\x03\x01\x02\x00\x01\x00\x01ü\x03\x03B\x8e=ß\x9aü\x05\x01î{itÍ\x10à¦óìµû3Ö\x1bÎçÙsD¸÷\x12x')
+2024-05-24 05:47:54,942 INFO werkzeug Thread-26 (process_request_thread) : 49.230.208.227 - - [24/May/2024 05:47:54] "[31m[1m\x16\x03\x01\x02\x00\x01\x00\x01ü\x03\x03B\x8e=ß\x9aü\x05\x01î{itÍ\x10à¦óìµû3Ö\x1bÎçÙsD¸÷\x12x ËÕTâ[0m" 400 -
+2024-05-24 05:47:56,693 ERROR werkzeug Thread-27 (process_request_thread) : 49.230.208.227 - - [24/May/2024 05:47:56] code 400, message Bad request version ('\x02h2\x08http/1.1Di\x00\x05\x00\x03\x02h2\x00\x05\x00\x05\x01\x00\x00\x00\x00\x00')
+2024-05-24 05:47:56,694 INFO werkzeug Thread-27 (process_request_thread) : 49.230.208.227 - - [24/May/2024 05:47:56] "[31m[1m\x16\x03\x01\x02\x1a\x01\x00\x02\x16\x03\x03d;%×5ÜH`dõ\x8f&\x07mkÃê$\x1b¬ñIm~\x14\x84\x0cèÝÐ?\x8a §Z\x04\x84%\x849l\x8e«´2ßýÎ\x1eå¾ÈR\x13½ò\x94K\x0b?O¹Ytp\x00 \x1a\x1a\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x01­zz\x00\x00\x00\x10\x00\x0e\x00\x0c\x02h2\x08http/1.1Di\x00\x05\x00\x03\x02h2\x00\x05\x00\x05\x01\x00\x00\x00\x00\x00[0m" 400 -
+2024-05-24 05:47:57,392 INFO werkzeug Thread-24 (process_request_thread) : 49.230.208.227 - - [24/May/2024 05:47:57] "[32mGET /picvibe HTTP/1.1[0m" 302 -
+2024-05-24 05:47:57,958 ERROR werkzeug Thread-29 (process_request_thread) : 49.230.208.227 - - [24/May/2024 05:47:57] code 400, message Bad request version ('(R©Iß§Å>Ê¬n¿')
+2024-05-24 05:47:57,958 INFO werkzeug Thread-29 (process_request_thread) : 49.230.208.227 - - [24/May/2024 05:47:57] "[31m[1m\x16\x03\x01\x02\x00\x01\x00\x01ü\x03\x03m\x82}\x90\\\x17¼à\x1fÀ\x9d$/\x13UkÕí¹Pnlé\x19ÞÐ\x1açØb\x12\x06 \x9aÜ+`,PÅ\x86~|\x8e\x17ç1¿3T+*ã\x1fV9YdÖ7xÖt\x04k\x00 úú\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x01\x93ªª\x00\x00þ\x0d\x00º\x00\x00\x01\x00\x01í\x00 Y¯\x85(R©Iß§Å>Ê¬n¿[0m" 400 -
+2024-05-24 05:47:59,678 INFO werkzeug Thread-28 (process_request_thread) : 49.230.208.227 - - [24/May/2024 05:47:59] "GET /login HTTP/1.1" 200 -
+2024-05-24 05:48:03,320 INFO werkzeug Thread-30 (process_request_thread) : 49.230.208.227 - - [24/May/2024 05:48:03] "[33mGET /static/styles.css HTTP/1.1[0m" 404 -
+2024-05-24 05:48:03,560 INFO werkzeug Thread-31 (process_request_thread) : 49.230.208.227 - - [24/May/2024 05:48:03] "GET /static/images/logo.webp HTTP/1.1" 200 -
+2024-05-24 05:48:06,799 INFO werkzeug Thread-32 (process_request_thread) : 49.230.208.227 - - [24/May/2024 05:48:06] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2024-05-24 05:48:07,131 ERROR werkzeug Thread-34 (process_request_thread) : 49.230.208.227 - - [24/May/2024 05:48:07] code 400, message Bad HTTP/0.9 request type ("\x16\x03\x01\x02\x00\x01\x00\x01ü\x03\x03'h\x04\x07Ì")
+2024-05-24 05:48:07,131 INFO werkzeug Thread-34 (process_request_thread) : 49.230.208.227 - - [24/May/2024 05:48:07] "[31m[1m\x16\x03\x01\x02\x00\x01\x00\x01ü\x03\x03'h\x04\x07Ì\x1c.Æ\x97¹¢[0m" 400 -
+2024-05-24 05:48:08,259 ERROR werkzeug Thread-35 (process_request_thread) : 49.230.208.227 - - [24/May/2024 05:48:08] code 400, message Bad HTTP/0.9 request type ('\x16\x03\x01\x02\x1a\x01\x00\x02\x16\x03\x03Ã\x7f_;J@ç9\x08ÿBÃCù\x98NQû$ë\x08¢eG9^V\x14\x18\x06Ô&')
+2024-05-24 05:48:08,259 INFO werkzeug Thread-35 (process_request_thread) : 49.230.208.227 - - [24/May/2024 05:48:08] "[31m[1m\x16\x03\x01\x02\x1a\x01\x00\x02\x16\x03\x03Ã\x7f_;J@ç9\x08ÿBÃCù\x98NQû$ë\x08¢eG9^V\x14\x18\x06Ô& û\x05\x03ê¸}^¼)M\x88\x155»àaó®fèÉ\x0f÷\x05\x82Ó\x8fuN%½\x83\x00 [0m" 400 -
+2024-05-24 05:48:10,054 ERROR werkzeug Thread-36 (process_request_thread) : 49.230.208.227 - - [24/May/2024 05:48:10] code 400, message Bad request version ('\x1a\x1a\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x01\xadzz\x00\x00\x00\x12\x00\x00\x00')
+2024-05-24 05:48:10,054 INFO werkzeug Thread-36 (process_request_thread) : 49.230.208.227 - - [24/May/2024 05:48:10] "[31m[1m\x16\x03\x01\x02\x1a\x01\x00\x02\x16\x03\x03b\x94}&\x050O\x89 ·ïW\x95ãO\x08Ù!\x90d¡ò·YÒÓA\x96\x09»\x16ò ¡\x13\x80áV\x889S£\x8cR\x14Íû\x95\x07b/\x1d\x89ÐÅ6\x09&°/õ\x1d)\x09û\x00 \x1a\x1a\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x01­zz\x00\x00\x00\x12\x00\x00\x00[0m" 400 -
+2024-05-24 05:48:10,255 INFO werkzeug Thread-33 (process_request_thread) : 49.230.208.227 - - [24/May/2024 05:48:10] "[32mPOST /login HTTP/1.1[0m" 302 -
+2024-05-24 05:48:10,782 ERROR werkzeug Thread-37 (process_request_thread) : 49.230.208.227 - - [24/May/2024 05:48:10] code 400, message Bad request version ('ÚÚ\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x01\x93JJ\x00\x00\x00+\x00\x07\x06jj\x03\x04\x03\x03\x00-\x00\x02\x01\x01\x00#\x00\x00\x00')
+2024-05-24 05:48:10,782 INFO werkzeug Thread-37 (process_request_thread) : 49.230.208.227 - - [24/May/2024 05:48:10] "[31m[1m\x16\x03\x01\x02\x00\x01\x00\x01ü\x03\x03åòØæ±ç·þá\x9dÒõa\x8fe4\x9e\x8d\x80±\x86\x05\x97Î\x0eX¨ªO\x12Õ\x08 \x04!\x16ih\x85<¨#r()\x99ô\x06ù¢×ÒqÍ Ð[\x90\x03\x0cVå¦0@\x00 ÚÚ\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x01\x93JJ\x00\x00\x00+\x00\x07\x06jj\x03\x04\x03\x03\x00-\x00\x02\x01\x01\x00#\x00\x00\x00[0m" 400 -
+2024-05-24 05:48:15,111 INFO werkzeug Thread-38 (process_request_thread) : 49.230.208.227 - - [24/May/2024 05:48:15] "GET /home HTTP/1.1" 200 -
+2024-05-24 05:48:15,875 INFO werkzeug Thread-39 (process_request_thread) : 49.230.208.227 - - [24/May/2024 05:48:15] "GET /static/uploads/f2.png HTTP/1.1" 200 -
+2024-05-24 05:48:15,878 INFO werkzeug Thread-40 (process_request_thread) : 49.230.208.227 - - [24/May/2024 05:48:15] "[33mGET /static/styles.css HTTP/1.1[0m" 404 -
+2024-05-24 05:48:15,881 INFO werkzeug Thread-41 (process_request_thread) : 49.230.208.227 - - [24/May/2024 05:48:15] "GET /static/uploads/ferrari.png HTTP/1.1" 200 -
+2024-05-24 05:48:21,337 ERROR werkzeug Thread-43 (process_request_thread) : 49.230.208.227 - - [24/May/2024 05:48:21] code 400, message Bad request version ('êê\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x01\x93ÚÚ\x00\x00\x00')
+2024-05-24 05:48:21,337 INFO werkzeug Thread-43 (process_request_thread) : 49.230.208.227 - - [24/May/2024 05:48:21] "[31m[1m\x16\x03\x01\x02\x00\x01\x00\x01ü\x03\x03m+\x01j¾ã]\x83màw\\·¶U\x8dGfGÑ]Q\x0bþÏ½t6:\x02dU È>\x9a6ÉÜ\x1a\x8ffF\x84\x92\x99×\x15@D\x91¡\x1fvÔLÝªÃ1\\\x98µ\x15S\x00 êê\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x01\x93ÚÚ\x00\x00\x00[0m" 400 -
+2024-05-24 05:48:21,339 INFO werkzeug Thread-42 (process_request_thread) : 49.230.208.227 - - [24/May/2024 05:48:21] "GET /picvibe HTTP/1.1" 200 -
+2024-05-24 05:48:22,036 INFO werkzeug Thread-44 (process_request_thread) : 49.230.208.227 - - [24/May/2024 05:48:22] "GET /static/uploads/WIN_20230621_13_14_47_Pro.jpg HTTP/1.1" 200 -
+2024-05-24 05:48:23,497 ERROR werkzeug Thread-45 (process_request_thread) : 49.230.208.227 - - [24/May/2024 05:48:23] code 400, message Bad request version ('\x00\x02\x01\x00Di\x00\x05\x00\x03\x02h2\x00+\x00\x07\x06zz\x03\x04\x03\x03\x00')
+2024-05-24 05:48:23,497 INFO werkzeug Thread-45 (process_request_thread) : 49.230.208.227 - - [24/May/2024 05:48:23] "[31m[1m\x16\x03\x01\x02\x00\x01\x00\x01ü\x03\x03ÏÇ_\x91ÖëÞv*.½fô\x0c(\x11\x94@÷É\x07\x11T\x91V\x90ÿT:â%W ÿÀ\x09Î\x8b,^\x92\x05\x1cQQ18¤±\x8e!\x0e\x93Þ¢Ýês¯ðÎ\x03\x888­\x00 úú\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x01\x93\x9a\x9a\x00\x00\x00#\x00\x00\x00\x17\x00\x00\x00\x1b\x00\x03\x02\x00\x02\x00\x12\x00\x00\x00-\x00\x02\x01\x01\x00\x0b\x00\x02\x01\x00Di\x00\x05\x00\x03\x02h2\x00+\x00\x07\x06zz\x03\x04\x03\x03\x00[0m" 400 -
+2024-05-24 05:50:30,262 INFO werkzeug Thread-48 (process_request_thread) : 202.28.14.53 - - [24/May/2024 05:50:30] "GET /picvibe HTTP/1.1" 200 -
+2024-05-24 05:50:30,678 INFO werkzeug Thread-49 (process_request_thread) : 202.28.14.53 - - [24/May/2024 05:50:30] "[36mGET /static/uploads/WIN_20230621_13_14_47_Pro.jpg HTTP/1.1[0m" 304 -
+2024-05-24 05:50:37,986 INFO werkzeug Thread-50 (process_request_thread) : 202.28.14.53 - - [24/May/2024 05:50:37] "GET /home HTTP/1.1" 200 -
+2024-05-24 05:50:38,382 INFO werkzeug Thread-51 (process_request_thread) : 202.28.14.53 - - [24/May/2024 05:50:38] "[33mGET /static/styles.css HTTP/1.1[0m" 404 -
+2024-05-24 05:50:38,753 INFO werkzeug Thread-52 (process_request_thread) : 202.28.14.53 - - [24/May/2024 05:50:38] "[36mGET /static/uploads/f2.png HTTP/1.1[0m" 304 -
+2024-05-24 05:50:38,761 INFO werkzeug Thread-53 (process_request_thread) : 202.28.14.53 - - [24/May/2024 05:50:38] "[36mGET /static/uploads/ferrari.png HTTP/1.1[0m" 304 -
+2024-05-24 05:51:26,975 DEBUG PIL.PngImagePlugin Thread-54 (process_request_thread) : STREAM b'IHDR' 16 13
+2024-05-24 05:51:26,976 DEBUG PIL.PngImagePlugin Thread-54 (process_request_thread) : STREAM b'IDAT' 41 8192
+2024-05-24 05:51:27,034 INFO werkzeug Thread-54 (process_request_thread) : 202.28.14.53 - - [24/May/2024 05:51:27] "[32mPOST /home HTTP/1.1[0m" 302 -
+2024-05-24 05:51:27,414 INFO werkzeug Thread-55 (process_request_thread) : 202.28.14.53 - - [24/May/2024 05:51:27] "GET /home HTTP/1.1" 200 -
+2024-05-24 05:51:27,811 INFO werkzeug Thread-56 (process_request_thread) : 202.28.14.53 - - [24/May/2024 05:51:27] "[33mGET /static/styles.css HTTP/1.1[0m" 404 -
+2024-05-24 05:51:28,187 INFO werkzeug Thread-57 (process_request_thread) : 202.28.14.53 - - [24/May/2024 05:51:28] "[36mGET /static/uploads/f2.png HTTP/1.1[0m" 304 -
+2024-05-24 05:51:28,192 INFO werkzeug Thread-58 (process_request_thread) : 202.28.14.53 - - [24/May/2024 05:51:28] "[36mGET /static/uploads/ferrari.png HTTP/1.1[0m" 304 -
+2024-05-24 05:51:28,207 INFO werkzeug Thread-59 (process_request_thread) : 202.28.14.53 - - [24/May/2024 05:51:28] "GET /static/uploads/meme1.png HTTP/1.1" 200 -
+2024-05-24 05:51:48,818 DEBUG PIL.PngImagePlugin Thread-60 (process_request_thread) : STREAM b'IHDR' 16 13
+2024-05-24 05:51:48,818 DEBUG PIL.PngImagePlugin Thread-60 (process_request_thread) : STREAM b'IDAT' 41 8192
+2024-05-24 05:51:48,914 INFO werkzeug Thread-60 (process_request_thread) : 202.28.14.53 - - [24/May/2024 05:51:48] "[32mPOST /home HTTP/1.1[0m" 302 -
+2024-05-24 05:51:49,295 INFO werkzeug Thread-61 (process_request_thread) : 202.28.14.53 - - [24/May/2024 05:51:49] "GET /home HTTP/1.1" 200 -
+2024-05-24 05:51:49,682 INFO werkzeug Thread-62 (process_request_thread) : 202.28.14.53 - - [24/May/2024 05:51:49] "[33mGET /static/styles.css HTTP/1.1[0m" 404 -
+2024-05-24 05:51:50,052 INFO werkzeug Thread-63 (process_request_thread) : 202.28.14.53 - - [24/May/2024 05:51:50] "[36mGET /static/uploads/f2.png HTTP/1.1[0m" 304 -
+2024-05-24 05:51:50,060 INFO werkzeug Thread-64 (process_request_thread) : 202.28.14.53 - - [24/May/2024 05:51:50] "[36mGET /static/uploads/ferrari.png HTTP/1.1[0m" 304 -
+2024-05-24 05:51:50,067 INFO werkzeug Thread-65 (process_request_thread) : 202.28.14.53 - - [24/May/2024 05:51:50] "GET /static/uploads/meme2.png HTTP/1.1" 200 -
+2024-05-24 05:51:50,082 INFO werkzeug Thread-66 (process_request_thread) : 202.28.14.53 - - [24/May/2024 05:51:50] "[36mGET /static/uploads/meme1.png HTTP/1.1[0m" 304 -
+2024-05-24 05:52:08,577 DEBUG PIL.PngImagePlugin Thread-67 (process_request_thread) : STREAM b'IHDR' 16 13
+2024-05-24 05:52:08,577 DEBUG PIL.PngImagePlugin Thread-67 (process_request_thread) : STREAM b'IDAT' 41 8192
+2024-05-24 05:52:08,683 INFO werkzeug Thread-67 (process_request_thread) : 202.28.14.53 - - [24/May/2024 05:52:08] "[32mPOST /home HTTP/1.1[0m" 302 -
+2024-05-24 05:52:09,062 INFO werkzeug Thread-68 (process_request_thread) : 202.28.14.53 - - [24/May/2024 05:52:09] "GET /home HTTP/1.1" 200 -
+2024-05-24 05:52:09,452 INFO werkzeug Thread-69 (process_request_thread) : 202.28.14.53 - - [24/May/2024 05:52:09] "[33mGET /static/styles.css HTTP/1.1[0m" 404 -
+2024-05-24 05:52:09,836 INFO werkzeug Thread-70 (process_request_thread) : 202.28.14.53 - - [24/May/2024 05:52:09] "[36mGET /static/uploads/f2.png HTTP/1.1[0m" 304 -
+2024-05-24 05:52:09,842 INFO werkzeug Thread-71 (process_request_thread) : 202.28.14.53 - - [24/May/2024 05:52:09] "[36mGET /static/uploads/ferrari.png HTTP/1.1[0m" 304 -
+2024-05-24 05:52:09,848 INFO werkzeug Thread-72 (process_request_thread) : 202.28.14.53 - - [24/May/2024 05:52:09] "GET /static/uploads/meme3.png HTTP/1.1" 200 -
+2024-05-24 05:52:09,853 INFO werkzeug Thread-73 (process_request_thread) : 202.28.14.53 - - [24/May/2024 05:52:09] "[36mGET /static/uploads/meme2.png HTTP/1.1[0m" 304 -
+2024-05-24 05:52:09,858 INFO werkzeug Thread-74 (process_request_thread) : 202.28.14.53 - - [24/May/2024 05:52:09] "[36mGET /static/uploads/meme1.png HTTP/1.1[0m" 304 -
+2024-05-24 05:52:22,589 INFO werkzeug Thread-75 (process_request_thread) : 202.28.14.53 - - [24/May/2024 05:52:22] "GET /picvibe HTTP/1.1" 200 -
+2024-05-24 05:52:23,006 INFO werkzeug Thread-76 (process_request_thread) : 202.28.14.53 - - [24/May/2024 05:52:23] "[36mGET /static/uploads/WIN_20230621_13_14_47_Pro.jpg HTTP/1.1[0m" 304 -
+2024-05-24 05:52:29,205 INFO werkzeug Thread-77 (process_request_thread) : 202.28.14.53 - - [24/May/2024 05:52:29] "GET /home HTTP/1.1" 200 -
+2024-05-24 05:52:29,592 INFO werkzeug Thread-78 (process_request_thread) : 202.28.14.53 - - [24/May/2024 05:52:29] "[33mGET /static/styles.css HTTP/1.1[0m" 404 -
+2024-05-24 05:52:29,970 INFO werkzeug Thread-79 (process_request_thread) : 202.28.14.53 - - [24/May/2024 05:52:29] "[36mGET /static/uploads/f2.png HTTP/1.1[0m" 304 -
+2024-05-24 05:52:29,971 INFO werkzeug Thread-80 (process_request_thread) : 202.28.14.53 - - [24/May/2024 05:52:29] "[36mGET /static/uploads/ferrari.png HTTP/1.1[0m" 304 -
+2024-05-24 05:52:29,973 INFO werkzeug Thread-81 (process_request_thread) : 202.28.14.53 - - [24/May/2024 05:52:29] "[36mGET /static/uploads/meme1.png HTTP/1.1[0m" 304 -
+2024-05-24 05:52:29,976 INFO werkzeug Thread-82 (process_request_thread) : 202.28.14.53 - - [24/May/2024 05:52:29] "[36mGET /static/uploads/meme2.png HTTP/1.1[0m" 304 -
+2024-05-24 05:52:29,977 INFO werkzeug Thread-83 (process_request_thread) : 202.28.14.53 - - [24/May/2024 05:52:29] "[36mGET /static/uploads/meme3.png HTTP/1.1[0m" 304 -
+2024-05-24 05:53:06,646 DEBUG PIL.PngImagePlugin Thread-84 (process_request_thread) : STREAM b'IHDR' 16 13
+2024-05-24 05:53:06,646 DEBUG PIL.PngImagePlugin Thread-84 (process_request_thread) : STREAM b'IDAT' 41 8192
+2024-05-24 05:53:06,744 INFO werkzeug Thread-84 (process_request_thread) : 202.28.14.53 - - [24/May/2024 05:53:06] "[32mPOST /home HTTP/1.1[0m" 302 -
+2024-05-24 05:53:07,125 INFO werkzeug Thread-85 (process_request_thread) : 202.28.14.53 - - [24/May/2024 05:53:07] "GET /home HTTP/1.1" 200 -
+2024-05-24 05:53:07,509 INFO werkzeug Thread-86 (process_request_thread) : 202.28.14.53 - - [24/May/2024 05:53:07] "[33mGET /static/styles.css HTTP/1.1[0m" 404 -
+2024-05-24 05:53:07,885 INFO werkzeug Thread-87 (process_request_thread) : 202.28.14.53 - - [24/May/2024 05:53:07] "[36mGET /static/uploads/f2.png HTTP/1.1[0m" 304 -
+2024-05-24 05:53:07,906 INFO werkzeug Thread-88 (process_request_thread) : 202.28.14.53 - - [24/May/2024 05:53:07] "[36mGET /static/uploads/meme1.png HTTP/1.1[0m" 304 -
+2024-05-24 05:53:07,908 INFO werkzeug Thread-89 (process_request_thread) : 202.28.14.53 - - [24/May/2024 05:53:07] "[36mGET /static/uploads/ferrari.png HTTP/1.1[0m" 304 -
+2024-05-24 05:53:07,912 INFO werkzeug Thread-90 (process_request_thread) : 202.28.14.53 - - [24/May/2024 05:53:07] "[36mGET /static/uploads/meme3.png HTTP/1.1[0m" 304 -
+2024-05-24 05:53:07,917 INFO werkzeug Thread-91 (process_request_thread) : 202.28.14.53 - - [24/May/2024 05:53:07] "[36mGET /static/uploads/meme2.png HTTP/1.1[0m" 304 -
+2024-05-24 05:53:08,269 INFO werkzeug Thread-92 (process_request_thread) : 202.28.14.53 - - [24/May/2024 05:53:08] "GET /static/uploads/cezaritto.png HTTP/1.1" 200 -
+2024-05-24 05:53:14,618 INFO werkzeug Thread-93 (process_request_thread) : 202.28.14.53 - - [24/May/2024 05:53:14] "[32mPOST /delete_image/13 HTTP/1.1[0m" 302 -
+2024-05-24 05:53:14,999 INFO werkzeug Thread-94 (process_request_thread) : 202.28.14.53 - - [24/May/2024 05:53:14] "GET /home HTTP/1.1" 200 -
+2024-05-24 05:53:15,391 INFO werkzeug Thread-95 (process_request_thread) : 202.28.14.53 - - [24/May/2024 05:53:15] "[33mGET /static/styles.css HTTP/1.1[0m" 404 -
+2024-05-24 05:53:15,770 INFO werkzeug Thread-96 (process_request_thread) : 202.28.14.53 - - [24/May/2024 05:53:15] "[36mGET /static/uploads/ferrari.png HTTP/1.1[0m" 304 -
+2024-05-24 05:53:15,772 INFO werkzeug Thread-97 (process_request_thread) : 202.28.14.53 - - [24/May/2024 05:53:15] "[36mGET /static/uploads/f2.png HTTP/1.1[0m" 304 -
+2024-05-24 05:53:15,783 INFO werkzeug Thread-98 (process_request_thread) : 202.28.14.53 - - [24/May/2024 05:53:15] "[36mGET /static/uploads/meme1.png HTTP/1.1[0m" 304 -
+2024-05-24 05:53:15,793 INFO werkzeug Thread-100 (process_request_thread) : 202.28.14.53 - - [24/May/2024 05:53:15] "[36mGET /static/uploads/meme3.png HTTP/1.1[0m" 304 -
+2024-05-24 05:53:15,794 INFO werkzeug Thread-99 (process_request_thread) : 202.28.14.53 - - [24/May/2024 05:53:15] "[36mGET /static/uploads/meme2.png HTTP/1.1[0m" 304 -
+2024-05-24 05:53:37,085 DEBUG PIL.PngImagePlugin Thread-101 (process_request_thread) : STREAM b'IHDR' 16 13
+2024-05-24 05:53:37,085 DEBUG PIL.PngImagePlugin Thread-101 (process_request_thread) : STREAM b'IDAT' 41 8192
+2024-05-24 05:53:37,459 INFO werkzeug Thread-101 (process_request_thread) : 202.28.14.53 - - [24/May/2024 05:53:37] "[32mPOST /home HTTP/1.1[0m" 302 -
+2024-05-24 05:53:37,839 INFO werkzeug Thread-102 (process_request_thread) : 202.28.14.53 - - [24/May/2024 05:53:37] "GET /home HTTP/1.1" 200 -
+2024-05-24 05:53:38,234 INFO werkzeug Thread-103 (process_request_thread) : 202.28.14.53 - - [24/May/2024 05:53:38] "[33mGET /static/styles.css HTTP/1.1[0m" 404 -
+2024-05-24 05:53:38,606 INFO werkzeug Thread-104 (process_request_thread) : 202.28.14.53 - - [24/May/2024 05:53:38] "[36mGET /static/uploads/f2.png HTTP/1.1[0m" 304 -
+2024-05-24 05:53:38,611 INFO werkzeug Thread-105 (process_request_thread) : 202.28.14.53 - - [24/May/2024 05:53:38] "[36mGET /static/uploads/ferrari.png HTTP/1.1[0m" 304 -
+2024-05-24 05:53:38,634 INFO werkzeug Thread-106 (process_request_thread) : 202.28.14.53 - - [24/May/2024 05:53:38] "[36mGET /static/uploads/meme1.png HTTP/1.1[0m" 304 -
+2024-05-24 05:53:38,638 INFO werkzeug Thread-107 (process_request_thread) : 202.28.14.53 - - [24/May/2024 05:53:38] "[36mGET /static/uploads/meme2.png HTTP/1.1[0m" 304 -
+2024-05-24 05:53:38,640 INFO werkzeug Thread-108 (process_request_thread) : 202.28.14.53 - - [24/May/2024 05:53:38] "[36mGET /static/uploads/meme3.png HTTP/1.1[0m" 304 -
+2024-05-24 05:53:38,992 INFO werkzeug Thread-109 (process_request_thread) : 202.28.14.53 - - [24/May/2024 05:53:38] "GET /static/uploads/cezaritto.png HTTP/1.1" 200 -
+2024-05-24 05:54:21,349 INFO werkzeug Thread-110 (process_request_thread) : 202.28.14.53 - - [24/May/2024 05:54:21] "[32mGET / HTTP/1.1[0m" 302 -
+2024-05-24 05:54:21,738 INFO werkzeug Thread-111 (process_request_thread) : 202.28.14.53 - - [24/May/2024 05:54:21] "GET /home HTTP/1.1" 200 -
+2024-05-24 05:54:22,135 INFO werkzeug Thread-112 (process_request_thread) : 202.28.14.53 - - [24/May/2024 05:54:22] "[33mGET /static/styles.css HTTP/1.1[0m" 404 -
+2024-05-24 05:54:22,509 INFO werkzeug Thread-113 (process_request_thread) : 202.28.14.53 - - [24/May/2024 05:54:22] "[36mGET /static/uploads/f2.png HTTP/1.1[0m" 304 -
+2024-05-24 05:54:22,520 INFO werkzeug Thread-114 (process_request_thread) : 202.28.14.53 - - [24/May/2024 05:54:22] "[36mGET /static/uploads/ferrari.png HTTP/1.1[0m" 304 -
+2024-05-24 05:54:22,577 INFO werkzeug Thread-115 (process_request_thread) : 202.28.14.53 - - [24/May/2024 05:54:22] "[36mGET /static/uploads/meme2.png HTTP/1.1[0m" 304 -
+2024-05-24 05:54:22,579 INFO werkzeug Thread-116 (process_request_thread) : 202.28.14.53 - - [24/May/2024 05:54:22] "[36mGET /static/uploads/meme1.png HTTP/1.1[0m" 304 -
+2024-05-24 05:54:22,586 INFO werkzeug Thread-117 (process_request_thread) : 202.28.14.53 - - [24/May/2024 05:54:22] "[36mGET /static/uploads/meme3.png HTTP/1.1[0m" 304 -
+2024-05-24 05:54:22,895 INFO werkzeug Thread-118 (process_request_thread) : 202.28.14.53 - - [24/May/2024 05:54:22] "[36mGET /static/uploads/cezaritto.png HTTP/1.1[0m" 304 -
+2024-05-24 05:55:14,860 DEBUG PIL.PngImagePlugin Thread-119 (process_request_thread) : STREAM b'IHDR' 16 13
+2024-05-24 05:55:14,861 DEBUG PIL.PngImagePlugin Thread-119 (process_request_thread) : STREAM b'IDAT' 41 8192
+2024-05-24 05:55:14,900 INFO werkzeug Thread-119 (process_request_thread) : 202.28.14.53 - - [24/May/2024 05:55:14] "[32mPOST /home HTTP/1.1[0m" 302 -
+2024-05-24 05:55:15,278 INFO werkzeug Thread-120 (process_request_thread) : 202.28.14.53 - - [24/May/2024 05:55:15] "GET /home HTTP/1.1" 200 -
+2024-05-24 05:55:15,673 INFO werkzeug Thread-121 (process_request_thread) : 202.28.14.53 - - [24/May/2024 05:55:15] "[33mGET /static/styles.css HTTP/1.1[0m" 404 -
+2024-05-24 05:55:16,051 INFO werkzeug Thread-122 (process_request_thread) : 202.28.14.53 - - [24/May/2024 05:55:16] "[36mGET /static/uploads/f2.png HTTP/1.1[0m" 304 -
+2024-05-24 05:55:16,052 INFO werkzeug Thread-123 (process_request_thread) : 202.28.14.53 - - [24/May/2024 05:55:16] "[36mGET /static/uploads/ferrari.png HTTP/1.1[0m" 304 -
+2024-05-24 05:55:16,064 INFO werkzeug Thread-125 (process_request_thread) : 202.28.14.53 - - [24/May/2024 05:55:16] "[36mGET /static/uploads/meme1.png HTTP/1.1[0m" 304 -
+2024-05-24 05:55:16,064 INFO werkzeug Thread-124 (process_request_thread) : 202.28.14.53 - - [24/May/2024 05:55:16] "GET /static/uploads/cezarittos_dreamgirl.png HTTP/1.1" 200 -
+2024-05-24 05:55:16,072 INFO werkzeug Thread-126 (process_request_thread) : 202.28.14.53 - - [24/May/2024 05:55:16] "[36mGET /static/uploads/meme2.png HTTP/1.1[0m" 304 -
+2024-05-24 05:55:16,426 INFO werkzeug Thread-127 (process_request_thread) : 202.28.14.53 - - [24/May/2024 05:55:16] "[36mGET /static/uploads/meme3.png HTTP/1.1[0m" 304 -
+2024-05-24 05:55:16,798 INFO werkzeug Thread-128 (process_request_thread) : 202.28.14.53 - - [24/May/2024 05:55:16] "[36mGET /static/uploads/cezaritto.png HTTP/1.1[0m" 304 -
