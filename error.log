@@ -583,3 +583,11 @@
 2024-05-24 05:55:16,072 INFO werkzeug Thread-126 (process_request_thread) : 202.28.14.53 - - [24/May/2024 05:55:16] "[36mGET /static/uploads/meme2.png HTTP/1.1[0m" 304 -
 2024-05-24 05:55:16,426 INFO werkzeug Thread-127 (process_request_thread) : 202.28.14.53 - - [24/May/2024 05:55:16] "[36mGET /static/uploads/meme3.png HTTP/1.1[0m" 304 -
 2024-05-24 05:55:16,798 INFO werkzeug Thread-128 (process_request_thread) : 202.28.14.53 - - [24/May/2024 05:55:16] "[36mGET /static/uploads/cezaritto.png HTTP/1.1[0m" 304 -
+2024-05-24 05:59:40,541 INFO werkzeug MainThread :  * Detected change in '/home/picvibe/python3_final/app.py', reloading
+2024-05-24 05:59:40,624 INFO werkzeug MainThread :  * Restarting with stat
+2024-05-24 05:59:40,921 WARNING werkzeug MainThread :  * Debugger is active!
+2024-05-24 05:59:40,929 INFO werkzeug MainThread :  * Debugger PIN: 914-131-808
+2024-05-24 05:59:43,966 INFO werkzeug MainThread :  * Detected change in '/home/picvibe/python3_final/app.py', reloading
+2024-05-24 05:59:44,035 INFO werkzeug MainThread :  * Restarting with stat
+2024-05-24 05:59:44,358 WARNING werkzeug MainThread :  * Debugger is active!
+2024-05-24 05:59:44,367 INFO werkzeug MainThread :  * Debugger PIN: 914-131-808

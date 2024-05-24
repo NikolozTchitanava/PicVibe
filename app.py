@@ -10,10 +10,8 @@ import logging
 from dotenv import load_dotenv
 from PIL import Image
 
-# Load environment variables from .env file
 load_dotenv()
 
-# Set up logging
 logging.basicConfig(filename='error.log', level=logging.DEBUG, 
                     format='%(asctime)s %(levelname)s %(name)s %(threadName)s : %(message)s')
 
