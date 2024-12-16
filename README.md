@@ -1,5 +1,4 @@
-# python3_final
-final project for python3
+
 # PicVibe
 
 PicVibe is a web application that allows users to upload, view, like, and dislike images. Users can sign up, log in, and interact with a gallery of images uploaded by other users. The application features image upload via file selection or pasting, and it displays images in a gallery format where users can vote on each image.
